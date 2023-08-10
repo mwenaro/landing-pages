@@ -1,6 +1,15 @@
-import type { Config } from 'tailwindcss'
 
-const config: Config = {
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`;
+    }
+    return `rgb(var(${variableName}))`;
+  };
+}
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,13 +17,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
+      colors: {
+        skin: {
+          primary: withOpacity('--primary'),
+          // secondary: withOpacity("--secondary"),
+          accent: withOpacity('--accent'),
+          neutral: withOpacity('--neutral'),
+          white: withOpacity('--white'),
+        },
       },
     },
   },
   plugins: [],
-}
-export default config
+};

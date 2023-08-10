@@ -1,9 +1,10 @@
 import {
 Typography,
-ContactForm
+ContactForm,
+ContactInfo
 }
 
-from "@/(components)"
+from "@/components"
 const  paragraphs = [
   "Are you curious about your ancestry and looking to delve into the depths of your genetic history? Lifenity offers advanced DNA testing services that will unlock the secrets of your past and empower you with valuable insights into your present and future.",
     "Discover the Lifenity Difference:",
@@ -49,17 +50,18 @@ Uncover Your Genetic Heritage - Embrace Your Identity
 
 <div className="container mx-auto p-4">
       {paragraphs.map((paragraph, index) => (
-              <p key={index} className="mb-4">
+              <p key={index} className="mb-4 group ">
 	                {paragraph}
+	                <span className="hidden text-red-600 group-hover:block">Hello</span>
 			        </p>
 				      ))}
  </div>
-
+<ContactInfo />
 <ContactForm />
 
 
 
-<div className="container">
+<div className="container p-4">
 
 
 <Typography variant = "p" >
