@@ -5,7 +5,8 @@ import {
 }
 
     from "@/components"
-import { BannerImage } from "@/components/organisms";
+import { Logo } from "@/components/molecules";
+import { BannerImage, Header } from "@/components/organisms";
 const paragraphs = [
     "Are you curious about your ancestry and looking to delve into the depths of your genetic history? Lifenity offers advanced DNA testing services that will unlock the secrets of your past and empower you with valuable insights into your present and future.",
     "Discover the Lifenity Difference:",
@@ -33,26 +34,30 @@ export default function Page() {
 
     return (
         <div className=" w-full justisfy-center items-center bg-slate-100">
-            <header>
 
-            </header>
-            <main>
-                <BannerImage imageSrc="/assets/images/lifenity/banner.jpg">
-                    <Typography variant="h2" className="text-bold text-center ">
+            {/* <Header /> */}
+            <main className="">
+                <BannerImage imageSrc="/assets/images/lifenity/banner1.jpg">
+                    <div className="flex">
+                        <div className="w-20 h-20">
+                            <Logo LOGO_PIC="/assets/images/lifenity/logo.gif" className="w-20 h-20" />
+                        </div>
 
-                        Lifenity DNA Testing Services
-                    </Typography>
+                        <div className="flex-1 flex flex-col justify-center items-center">
+                            <Typography variant="h2" className="text-bold text-center px-4 py-2 ">
 
-                    <Typography variant="h3"
-                        className="text-semibold"
+                                Lifenity DNA Testing Services
+                            </Typography>
 
-                    >
+                            <Typography variant="h3"
+                                className="text-semibold    px-4 py-2 text-center"
 
+                            >
+                                Uncover Your Genetic Heritage - Embrace Your Identity
+                            </Typography>
+                        </div>
 
-                        Uncover Your Genetic Heritage - Embrace Your Identity
-
-                    </Typography>
-
+                    </div>
                 </BannerImage>
             </main>
 
