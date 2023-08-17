@@ -28,6 +28,27 @@ const paragraphs = [
     "🚚 Worldwide Shipping: Wherever you are, we'll deliver the kit to your doorstep."
 ];
 
+const customHeader = (size: string = "sm") => <div className={`${size === 'sm' ? 'w-full flex md:hidden' : 'w-full hidden md:flex'}`}>
+    <div className="w-20 h-20">
+        <Logo LOGO_PIC="/assets/images/lifenity/logo.gif" className="w-20 h-20" />
+    </div>
+
+    <div className="flex-1 flex flex-col justify-center items-center">
+        <Typography variant="h2" className="text-bold text-center px-4 py-2 text-xl md:text-3xl">
+
+            Lifenity DNA Testing Services
+        </Typography>
+
+        <Typography variant="h3"
+            className="text-semibold    px-4 py-2 text-center text-lg md:text-2xl"
+
+        >
+            Uncover Your Genetic Heritage - Embrace Your Identity
+        </Typography>
+    </div>
+
+</div>
+
 
 
 export default function Page() {
@@ -36,28 +57,12 @@ export default function Page() {
         <div className=" w-full justisfy-center items-center bg-slate-100">
 
             {/* <Header /> */}
+            <header className="mb-2">
+            {customHeader('sm')}
+            </header>
             <main className="">
                 <BannerImage imageSrc="/assets/images/lifenity/banner1.jpg">
-                    <div className="flex">
-                        <div className="w-20 h-20">
-                            <Logo LOGO_PIC="/assets/images/lifenity/logo.gif" className="w-20 h-20" />
-                        </div>
-
-                        <div className="flex-1 flex flex-col justify-center items-center">
-                            <Typography variant="h2" className="text-bold text-center px-4 py-2 ">
-
-                                Lifenity DNA Testing Services
-                            </Typography>
-
-                            <Typography variant="h3"
-                                className="text-semibold    px-4 py-2 text-center"
-
-                            >
-                                Uncover Your Genetic Heritage - Embrace Your Identity
-                            </Typography>
-                        </div>
-
-                    </div>
+                    {/* {customHeader()} */}
                 </BannerImage>
 
 
@@ -74,11 +79,11 @@ export default function Page() {
                     ))}
                 </ul>
                 <div className="flex flex-col mid:flex-row bg-gray-100 max-w-[1000px] mx-auto">
-                  
-                        <ContactInfo />
-                   
-                        <ContactForm />
-                    
+
+                    <ContactInfo />
+
+                    <ContactForm />
+
                 </div>
 
 
