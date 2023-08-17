@@ -5,6 +5,7 @@ import {
 }
 
     from "@/components"
+import { BannerImage } from "@/components/organisms";
 const paragraphs = [
     "Are you curious about your ancestry and looking to delve into the depths of your genetic history? Lifenity offers advanced DNA testing services that will unlock the secrets of your past and empower you with valuable insights into your present and future.",
     "Discover the Lifenity Difference:",
@@ -32,21 +33,28 @@ export default function Page() {
 
     return (
         <div className=" w-full justisfy-center items-center bg-slate-100">
+            <header>
 
-            <Typography variant="h2" className="text-bold text-center ">
+            </header>
+            <main>
+                <BannerImage imageSrc="/assets/images/lifenity/banner.jpg">
+                    <Typography variant="h2" className="text-bold text-center ">
 
-                Lifenity DNA Testing Services
-            </Typography>
+                        Lifenity DNA Testing Services
+                    </Typography>
 
-            <Typography variant="h3"
-                className="text-semibold"
+                    <Typography variant="h3"
+                        className="text-semibold"
 
-            >
+                    >
 
 
-                Uncover Your Genetic Heritage - Embrace Your Identity
+                        Uncover Your Genetic Heritage - Embrace Your Identity
 
-            </Typography>
+                    </Typography>
+
+                </BannerImage>
+            </main>
 
             <ul className="container mx-auto p-4">
                 {paragraphs.map((paragraph, index) => (
@@ -54,7 +62,7 @@ export default function Page() {
                         <Typography variant="h4" className="text-lg md:text-xl">{paragraph.split(':')[0]}</Typography>
                         {
                             paragraph.split(':')[1]?.trim().length > 0 ?
-                             <Typography variant="h3" className="hidden pr-4 group-hover:block"> {paragraph.split(':')[1]}</Typography> : ""
+                                <Typography variant="h3" className="hidden pr-4 group-hover:block"> {paragraph.split(':')[1]}</Typography> : ""
                         }
 
                     </li>
