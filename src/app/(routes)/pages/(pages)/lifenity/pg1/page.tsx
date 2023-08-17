@@ -28,7 +28,7 @@ const paragraphs = [
     "🚚 Worldwide Shipping: Wherever you are, we'll deliver the kit to your doorstep."
 ];
 
-const customHeader = (size: string = "sm") => <div className={`${size === 'sm' ? 'w-full flex md:hidden' : 'w-full hidden md:flex'}`}>
+const customHeader = (size: string = "sm") => <div className={` flex`}>
     <div className="w-20 h-20">
         <Logo LOGO_PIC="/assets/images/lifenity/logo.gif" className="w-20 h-20" />
     </div>
@@ -62,7 +62,7 @@ export default function Page() {
             </header>
             <main className="">
                 <BannerImage imageSrc="/assets/images/lifenity/banner1.jpg">
-                    {/* {customHeader()} */}
+                    {/* {customHeader('lg')} */}
                 </BannerImage>
 
 
