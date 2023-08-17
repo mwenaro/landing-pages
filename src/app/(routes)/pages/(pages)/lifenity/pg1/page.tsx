@@ -59,48 +59,48 @@ export default function Page() {
 
                     </div>
                 </BannerImage>
+
+
+                <ul className="container mx-auto p-4">
+                    {paragraphs.map((paragraph, index) => (
+                        <li key={index} className="group max-w-[1000px] mx-auto ">
+                            <Typography variant="h4" className="text-lg md:text-xl pb-1 mb-1">{paragraph.split(':')[0]}</Typography>
+                            {
+                                paragraph.split(':')[1]?.trim().length > 0 ?
+                                    <Typography variant="h3" className="hidden pr-4 group-hover:block"> {paragraph.split(':')[1]}</Typography> : ""
+                            }
+
+                        </li>
+                    ))}
+                </ul>
+                <div className="flex flex-col mid:flex-row bg-gray-100 max-w-[1000px] mx-auto">
+                  
+                        <ContactInfo />
+                   
+                        <ContactForm />
+                    
+                </div>
+
+
+
+
+                <div className="container p-4">
+
+
+                    <Typography variant="h4" >
+                        🌐 Learn more about us and our services:
+
+                        <a href="https://www.lifenity.ae">www.lifenity.ae</a>
+
+                    </Typography>
+
+
+                    <Typography variant="h4" >
+                        Join the Lifenity Community and Unearth Your Genetic Story!
+                    </Typography>
+
+                </div>
             </main>
-
-            <ul className="container mx-auto p-4">
-                {paragraphs.map((paragraph, index) => (
-                    <li key={index} className="group ">
-                        <Typography variant="h4" className="text-lg md:text-xl">{paragraph.split(':')[0]}</Typography>
-                        {
-                            paragraph.split(':')[1]?.trim().length > 0 ?
-                                <Typography variant="h3" className="hidden pr-4 group-hover:block"> {paragraph.split(':')[1]}</Typography> : ""
-                        }
-
-                    </li>
-                ))}
-            </ul>
-            <div className="flex flex-col mid:flex-row bg-gray-100">
-                <div className="w-full mid:w-1/2">
-                    <ContactInfo />
-                </div>
-                <div className="w-full mid:w-1/2">
-                    <ContactForm />
-                </div>
-            </div>
-
-
-
-
-            <div className="container p-4">
-
-
-                <Typography variant="h4" >
-                    🌐 Learn more about us and our services:
-
-                    <a href="https://www.lifenity.ae">www.lifenity.ae</a>
-
-                </Typography>
-
-
-                <Typography variant="h4" >
-                    Join the Lifenity Community and Unearth Your Genetic Story!
-                </Typography>
-
-            </div>
         </div>)
 
 }

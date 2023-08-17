@@ -11,6 +11,7 @@ const ContactForm = () => {
     email: '',
     phone: '',
     message: '',
+    subject:""
   };
 
   const handleSubmit = (values:any) => {
@@ -24,7 +25,14 @@ const ContactForm = () => {
         <Input name="fullName" label="Full Name" />
         <Input name="email" label="Email" type="email" />
         <Input name="phone" label="Phone" type="tel" />
+        <Input name="subject" label="Subject" type="select"  options={[
+         "Paternity / DNA Services",
+         "Cancer Testing Services",
+         "Life Geno",
+         "Pharmacogenomics"
+        ]}/>
         <Input name="message" label="Message" type="textarea" />
+        
         
      
 	<button className="mx-auto w-5/6 md:w-[400px] px-8 py-3 bg-blue-600 text-white my-4 rounded-lg ">Submit</button>
