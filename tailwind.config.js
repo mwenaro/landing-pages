@@ -1,6 +1,6 @@
 
-function withOpacity(variableName:string) {
-  return ({ opacityValue }:{opacityValue:any}) => {
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
       return `rgba(var(${variableName}), ${opacityValue})`;
     }
