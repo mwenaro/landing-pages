@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
@@ -31,11 +32,13 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (
     values: ContactFormValues,
-    { setSubmitting }: FormikHelpers<ContactFormValues>
+    { setSubmitting, resetForm }: FormikHelpers<ContactFormValues>
+
   ) => {
     // Handle form submission here
     console.log(values);
     // After handling submission, you can reset form state
+    resetForm();
     setSubmitting(false);
   };
 
@@ -46,7 +49,7 @@ const ContactForm: React.FC = () => {
       validationSchema={validationSchema}
     >
       {({ isSubmitting }) => (
-        <Form className="w-full flex flex-col gap-3 bg-slate-300 max-w-[500px] mx-auto py-4 md:py-8">
+        <Form className="w-full flex flex-col bg-slate-300 max-w-[500px] mx-auto py-2 md:py-4 md:pt-8">
           <Input name="fullName" label="Full Name" />
           <Input name="email" label="Email" type="email" />
           <Input name="phone" label="Phone" type="tel" />
@@ -64,13 +67,13 @@ const ContactForm: React.FC = () => {
           />
           <Input name="message" label="Message" type="textarea" />
 
-          <button
+          <Button
             type="submit"
             disabled={isSubmitting}
             className="mx-auto w-5/6 md:w-[400px] px-8 py-3 bg-blue-600 text-white my-4 rounded-lg"
           >
             Submit
-          </button>
+          </Button>
         </Form>
       )}
     </Formik>

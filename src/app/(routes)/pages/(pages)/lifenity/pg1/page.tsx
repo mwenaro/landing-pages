@@ -7,6 +7,7 @@ import {
     from "@/components"
 import { Logo } from "@/components/molecules";
 import { BannerImage, Header } from "@/components/organisms";
+import Navbar from "@/components/organisms/Navbar";
 const paragraphs = [
     "Are you curious about your ancestry and looking to delve into the depths of your genetic history? Lifenity offers advanced DNA testing services that will unlock the secrets of your past and empower you with valuable insights into your present and future.",
     "Discover the Lifenity Difference:",
@@ -14,7 +15,11 @@ const paragraphs = [
     "🛡️ Privacy & Security: Your data is safe with us. We adhere to strict privacy protocols, and your information will never be shared without your consent.",
     "📜 Rich Historical Context: Travel back in time and learn how your ancestors' stories have shaped your unique identity today.",
     "🌐 Global Database: Connect with relatives you never knew existed and create bonds with people from around the world.",
-    "🚀 Scientifically Proven: Lifenity's DNA testing is based on robust scientific research, offering you the most reliable and accurate results.",
+    "🚀 Scientifically Proven: Lifenity's DNA testing is based on robust scientific research, offering you the most reliable and accurate results."
+];
+
+const services_paragraphs = [
+    
     "Explore Our Services:",
     "🧬 Ancestry DNA Test: Unravel your ethnic origins, trace migration patterns, and discover connections to diverse populations.",
     "👶 Paternity DNA Test: Strengthen family bonds with the confidence of knowing your biological relationship.",
@@ -28,10 +33,8 @@ const paragraphs = [
     "🚚 Worldwide Shipping: Wherever you are, we'll deliver the kit to your doorstep."
 ];
 
-const customHeader = (size: string = "sm") => <div className={` flex`}>
-    <div className="w-20 h-20">
-        <Logo LOGO_PIC="/assets/images/lifenity/logo.gif" className="w-20 h-20" />
-    </div>
+const customHeader = () =>
+
 
     <div className="flex-1 flex flex-col justify-center items-center">
         <Typography variant="h2" className="text-bold text-center px-4 py-2 text-xl md:text-3xl">
@@ -47,26 +50,39 @@ const customHeader = (size: string = "sm") => <div className={` flex`}>
         </Typography>
     </div>
 
-</div>
+
 
 
 
 export default function Page() {
 
     return (
-        <div className=" w-full justisfy-center items-center bg-slate-100">
+        <div className=" w-full justisfy-center items-center bg-slate-100 ">
 
-            {/* <Header /> */}
-            <header className="mb-2">
-            {customHeader('sm')}
-            </header>
+            <Header logo_pic={"/assets/images/lifenity/logo.gif"}
+                className="bg-slate-100"
+                navClass="bg-slate-100"
+
+                navLinks={[
+                    { title: 'Home', href: 'home' },
+                    {title:"Services", href : "services"},
+                    { title: "About Us", href: "about" },
+                    { title: 'Contact Us', href: 'contact' },
+                    { title: 'Get In Touch', href: 'contact' }
+
+                ]}
+            >
+                <p className="mt-20"></p>
+                {customHeader()}
+            </Header>
+
             <main className="">
-                <BannerImage imageSrc="/assets/images/lifenity/banner1.jpg">
-                    {/* {customHeader('lg')} */}
+                <p id="home"></p>
+                <BannerImage imageSrc="/assets/images/lifenity/banner1.jpg" >
                 </BannerImage>
 
 
-                <ul className="container mx-auto p-4">
+                <ul className="c+ontainer mx-auto p-4" id="about">
                     {paragraphs.map((paragraph, index) => (
                         <li key={index} className="group max-w-[1000px] mx-auto ">
                             <Typography variant="h4" className="text-lg md:text-xl pb-1 mb-1">{paragraph.split(':')[0]}</Typography>
@@ -78,7 +94,20 @@ export default function Page() {
                         </li>
                     ))}
                 </ul>
-                <div className="flex flex-col mid:flex-row bg-gray-100 max-w-[1000px] mx-auto">
+
+                <ul className="c+ontainer mx-auto p-4" id="services">
+                    {services_paragraphs.map((paragraph, index) => (
+                        <li key={index} className="group max-w-[1000px] mx-auto ">
+                            <Typography variant="h4" className="text-lg md:text-xl pb-1 mb-1">{paragraph.split(':')[0]}</Typography>
+                            {
+                                paragraph.split(':')[1]?.trim().length > 0 ?
+                                    <Typography variant="h3" className="hidden pr-4 group-hover:block"> {paragraph.split(':')[1]}</Typography> : ""
+                            }
+
+                        </li>
+                    ))}
+                </ul>
+                <div className="flex flex-col mid:flex-row bg-gray-100 max-w-[1000px] mx-auto" id="contact">
 
                     <ContactInfo />
 
@@ -92,7 +121,7 @@ export default function Page() {
                 <div className="container p-4">
 
 
-                    <Typography variant="h4" >
+                   <Typography variant="h4" >
                         🌐 Learn more about us and our services:
 
                         <a href="https://www.lifenity.ae">www.lifenity.ae</a>

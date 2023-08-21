@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface IProps {
   sectionId: string;
@@ -13,7 +14,7 @@ export default function SectionWrapper({
   return (
     <section
       id={sectionId}
-      className={`w-full   md:min-h-screen relative my-10 ${className}`}
+      className={twMerge(`w-full   md:min-h-screen relative my-10`,className)}
     >
       {children}
     </section>
